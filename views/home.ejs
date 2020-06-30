@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>
+            <%= locals.title%>
+        </title>
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+<!-- Welcome to my app. Have handled responsiveness as well and have implemented all the directories as per the framework and have set up databases and implemented the multi option deletion feature very well -->
+        
+<!-- Have added animation like resizing of todo list items on hovering and ripple feature on clicking the button as a part of innovation -->
+
+        <div>
+            <ul>
+                   
+                <% for (let i of contact_list) { %> 
+                   <div class="contact"> 
+                        <li>
+                            <p><%= i.name %></p>
+                            <p><%= i.phone %></p>
+                        </li>
+                    </div>
+                    <div class="delete-button">
+                        <a href="/delete-contact/?id=<%= i._id %>">
+                            delete
+                        </a>
+                    </div>
+                <% } %>
+            </ul>
+        </div>
+
+        <form action="/create-contact" method="POST">
+            <input type="text" name="name" placeholder="Enter name" required>
+            <input type="number" name="phone" placeholder="Enter phone" required>
+            <button type="submit">Add contact</button>
+        </form>
+        <script type="text/javascript" src="/js/home.js"></script>
+        </body>
+</html>
